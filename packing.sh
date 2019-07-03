@@ -20,12 +20,14 @@ echo "Generating JAR packages"
 
 mkdir -p "$BUILDDIR/natives/$OS"
 find $BUILDDIR/extract/*/lib -name "lib*.$EXT*" | xargs -I {} cp -f {} "$BUILDDIR/natives/$OS"
-jar cf $BUILDDIR/com.google.ortools.native-$OS.jar $BUILDDIR/natives
-cp $BUILDDIR/extract/*/lib/com.google.ortools.jar $BUILDDIR
+cd $BUILDDIR
+jar cf com.google.ortools.native-$OS.jar natives
+cp extract/*/lib/com.google.ortools.jar .
+cd ..
 
 echo "Installing Maven Artifacts"
 
-mvn install:install-file -Dfile=$BUILDDIR/com.google.ortools.jar -DgroupId=com.google.ortools -DartifactId=core -Dversion=$VERSION -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=$BUILDDIR/com.google.ortools.jar -DgroupId=com.google.ortools -DartifactId=ortools-core -Dversion=$VERSION -Dpackaging=jar -DgeneratePom=true
 
-mvn install:install-file -Dfile=$BUILDDIR/com.google.ortools.native-$OS.jar -DgroupId=com.google.ortools -DartifactId=native-$OS -Dversion=$VERSION -Dpackaging=jar -DgeneratePom=true
+mvn install:install-file -Dfile=$BUILDDIR/com.google.ortools.native-$OS.jar -DgroupId=com.google.ortools -DartifactId=ortools-native-$OS -Dversion=$VERSION -Dpackaging=jar -DgeneratePom=true
 
