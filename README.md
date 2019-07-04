@@ -27,7 +27,7 @@ For instance, to generate the artefact of version `7.1` for a `linux_64` machine
 For `7.2` generation for a `osx_64` machine, the following command must be executed:
 
 ```bash
-./or-tools-maven https://github.com/google/or-tools/releases/download/v7.2/or-tools_debian-9_v7.2.6977.tar.gz osx_64 7.2 3.8.0 
+./or-tools-maven https://github.com/google/or-tools/releases/download/v7.2/or-tools_MacOsX-10.14.5_v7.2.6977.tar.gz osx_64 7.2 3.8.0 
 ```
 
 ### Using dependencies
