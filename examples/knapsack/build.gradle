@@ -22,19 +22,23 @@ repositories {
 }
 
 ext {
-    orToolsVersion = '7.1'
+    orToolsVersion = '7.2'
 }
 
+configurations {
+    developmentOnly
+}
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     implementation "org.scijava:native-lib-loader:2.3.4"
-    implementation "com.google.ortools:ortools-core:$orToolsVersion"
     implementation "com.google.ortools:ortools-native:${orToolsVersion}-linux_64"
+    //developmentOnly "com.google.ortools:ortools-native:${orToolsVersion}-osx_64"
 
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
+//run.classpath += configurations.developmentOnly
 
 // Define the main class for the application
 mainClassName = 'ortools.sample.Knapsack'

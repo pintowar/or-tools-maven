@@ -8,16 +8,16 @@ import java.util.Arrays;
 
 public class Knapsack {
     static {
-        Arrays.asList("gflags", "glog", "protobuf",
-                "CoinUtils", "Clp", "ClpSolver", "Osi", "OsiClp",
-                "Cgl", "Cbc", "OsiCbc", "CbcSolver",
-                "ortools", "jniortools").forEach(it -> {
-            try {
-                NativeLoader.loadLibrary(it);
-            } catch (IOException e) {
-                throw new RuntimeException("Cloud not load native libs", e);
+        try {
+            for(String lib : Arrays.asList("gflags", "glog", "protobuf",
+                    "CoinUtils", "Clp", "ClpSolver", "Osi", "OsiClp",
+                    "Cgl", "Cbc", "OsiCbc", "CbcSolver",
+                    "ortools", "jniortools")) {
+                    NativeLoader.loadLibrary(lib);
             }
-        });
+        } catch (IOException e) {
+            throw new RuntimeException("Cloud not load native libs", e);
+        }
     }
 
     private static void solve() {
