@@ -32,6 +32,7 @@ generate_jar () {
 
     mkdir -p "$1/natives/$2"
     find $1/extract/*/lib -name "lib*.$EXT*" | xargs -I {} cp -f {} "$1/natives/$2"
+    find $1/extract/*/lib -name "lib*.jnilib" | xargs -I {} cp -f {} "$1/natives/$2"
     cd $1
     jar cf com.google.ortools.native-$2.jar natives
     cp extract/*/lib/com.google.ortools.jar .
