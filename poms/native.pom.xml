@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.google.ortools</groupId>
   <artifactId>ortools-native</artifactId>
-  <version>${VERSION}-${OS}</version>
+  <version>${VERSION}</version>
   <description>Native OR Tools Dependencies within a single JAR.</description>
 
   <dependencies>

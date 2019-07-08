@@ -47,7 +47,7 @@ maven_install () {
     echo "sed -i -e 's/\${VERSION}/$3/g; s/\${OS}/$2/g' $1/poms/native.pom.xml" | sh
 
     mvn install:install-file -Dfile=$1/com.google.ortools.jar -DgroupId=com.google.ortools -DartifactId=ortools-core -Dversion=$3 -Dpackaging=jar -DpomFile=$1/poms/core.pom.xml -DcreateChecksum=true
-    mvn install:install-file -Dfile=$1/com.google.ortools.native-$2.jar -DgroupId=com.google.ortools -DartifactId=ortools-native -Dversion=$3-$2 -Dpackaging=jar -DpomFile=$1/poms/native.pom.xml -DcreateChecksum=true
+    mvn install:install-file -Dfile=$1/com.google.ortools.native-$2.jar -DgroupId=com.google.ortools -DartifactId=ortools-native -Dversion=$3 -Dclassifier=$2 -Dpackaging=jar -DpomFile=$1/poms/native.pom.xml -DcreateChecksum=true
 }
 
 download_extract $BUILDDIR $URL

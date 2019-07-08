@@ -38,7 +38,8 @@ For instance, on a gradle file, the following dependencies must be declared:
 
 ```groovy
     implementation "org.scijava:native-lib-loader:2.3.4"
-    implementation "com.google.ortools:ortools-native:7.2-linux_64"
+    implementation "com.google.ortools:ortools-core:7.2"
+    implementation "com.google.ortools:ortools-native:7.2:linux_64"
 ```
 
 Also use the `NativeLoader.loadLibrary("jniortools")`, instead of using the common `System.loadLibrary("jniortools")`.
